@@ -1,0 +1,258 @@
+body {
+  background-color:#fdfdfd;
+}
+
+p.text-paragraph {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+}
+
+p.text-paragraph-2 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+p.text-paragraph-3 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.font-primary {
+  font-family: "Baloo 2", cursive;
+}
+
+
+.text-16 {
+  font-size: 16px !important;
+}
+
+.text-18 {
+  font-size: 18px !important;
+}
+
+.text-20 {
+  font-size: 20px !important;
+}
+
+.text-shadow-1 {
+  text-shadow: 0px 0px 4px rgba(21, 98, 131, 0.71);
+}
+
+.bg-primary-app {
+  background-color: #27b2ec;
+}
+
+.text-primary-app {
+  color: #27b2ec;
+}
+
+.card-app {
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  box-sizing: border-box;
+  box-shadow: 0px 8px 20px rgba(226, 226, 226, 0.4);
+  border-radius: 10px;
+}
+
+.text-heading-1 {
+  font-size: 24px;
+  font-family: "Baloo 2", cursive;
+  font-weight: 600;
+}
+
+
+.text-heading-2 {
+  font-size: 25px;
+  font-family: "Baloo 2", cursive;
+  font-weight: 600;
+}
+
+button.btn-primary-app {
+  background-color: #108AE4;
+  font-size: 18px;
+  height: 48px;
+  font-family: 'Baloo 2', cursive;
+  font-weight: 600;
+  color: white;
+}
+
+
+a.btn-ghost-app {
+  font-family: "Baloo 2", cursive;
+  font-size: 16px;
+  font-weight: 600;
+  color: #71707c;
+  text-align: center;
+  font-size: 18px;
+
+}
+
+button.btn-secondary-app {
+  font-size: 18px;
+  height: 48px;
+  font-family: 'Baloo 2', cursive;
+  font-weight: 600;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.13);
+  color: #108AE4;
+}
+
+.btn-secondary-app-2 {
+  height: 54px;
+  font-weight: 600;
+  background: #F2F2F2;
+  box-shadow: 0px 6px 10px rgba(210, 230, 235, 0.5);
+  border: 0px;
+  border-radius: 5px;
+  color: #71707C;
+  font-family: 'Baloo 2', cursive;
+  font-size: 18px;
+
+}
+
+label.input-label {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+label.input-label-select {
+
+  font-family: 'Baloo 2', sans-serif;
+  /* font-weight: 600; */
+  font-size: 18px;
+
+}
+
+input::placeholder {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+input {
+  font-family: "Open Sans", sans-serif !important;
+  height: 54px !important;
+  border: 1px solid rgba(78, 78, 78, 0.08) !important;
+  box-shadow: 0px 2px 4px rgba(238, 238, 238, 0.5) !important;
+  border-radius: 4px !important;
+  font-size: 18px;
+}
+
+select {
+
+  /* background: #FFFFFF !important; */
+  border: 1px solid rgba(78, 78, 78, 0.08) !important;
+  box-sizing: border-box !important;
+  box-shadow: 0px 2px 4px rgba(238, 238, 238, 0.5) !important;
+  border-radius: 4px !important;
+  height: 54px !important;
+  font-size: 18px;
+
+}
+
+select.select-input {
+
+  font-family: 'Baloo 2', cursive;
+  font-weight: normal;
+
+}
+
+
+textarea {
+  resize: none;
+  background: #FFFFFF;
+  border: 1px solid rgba(78, 78, 78, 0.08);
+  box-sizing: border-box;
+  box-shadow: 0px 2px 4px rgba(238, 238, 238, 0.5);
+  border-radius: 4px;
+  font-family: 'Baloo 2', cursive;
+  font-size: 18px;
+
+
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper-content {
+  position: relative;
+  top: 25%;
+}
+
+.bg-disabled {
+  background-color: #cecece !important;
+}
+
+.header-login {
+  font-family: 'Baloo 2', cursive;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.paragraph-login {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  opacity: 50%;
+}
+
+label.label-login {
+  font-family: 'Baloo 2', cursive;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+input.input-primary-app {
+  height: 48px;
+  border: none !important;
+  border-bottom: 1px solid #656565 !important;
+  background: #00000005;
+  border-radius: 0%;
+}
+
+input.form-control {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+input.form-control:focus {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border-color: #108AE4 !important;
+}
+
+h4.text-forgot-password {
+  font-family: 'Baloo 2', cursive;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+span.field-icon {
+  float: right;
+  margin-left: -25px;
+  margin-top: -34px;
+  margin-right: 10px;
+  position: relative;
+  z-index: 2;
+  font-size: 22px;
+  color: #BAC6CB;
+}
+
+.cancel-text-color {
+  color: #E41010 !important;
+  font-family: 'Open Sans', sans-serif !important;
+  font-weight: 600 !important;
+}
+
+.text-paragraph-sweet {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+.deny-button-font {
+  font-family: 'Open Sans', sans-serif !important;
+  font-weight: 600 !important;
+}
