@@ -22,6 +22,7 @@ npm run lint
 
 ### Build to Android Apps using Capacitor
 ```
+npx cap add android
 npx cap copy
 npx cap update
 npx cap open android
