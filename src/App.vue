@@ -40,8 +40,6 @@ export default {
             },
           });
 
-          console.log(requestResponse);
-
           if (requestResponse.status !== 200) {
             throw new Error(`Error with status code ${requestResponse.status}`);
           }
