@@ -1,0 +1,14 @@
+{
+  "appId": "com.developer.smkn3bandung.app",
+  "appName": "absensi-app",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "dist",
+  "linuxAndroidStudioPath": "/opt/android-studio-4.1/android-studio/bin/studio.sh",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {}
+}

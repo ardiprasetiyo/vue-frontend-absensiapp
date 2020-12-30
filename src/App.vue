@@ -27,28 +27,31 @@ export default {
     },
 
     async getStudentAttend() {
+      const validToken = await this.tokenCheck();
       const accessToken = this.$cookies.get("access-token");
 
-      try {
-        const requestResponse = await this.$axios({
-          method: "GET",
-          url: process.env.VUE_APP_API_HOST + "/api/v1/attendance",
-          headers: {
-            "Access-Token": accessToken,
-          },
-        });
+      if (validToken) {
+        try {
+          const requestResponse = await this.$axios({
+            method: "GET",
+            url: process.env.VUE_APP_API_HOST + "/api/v1/attendance",
+            headers: {
+              "Access-Token": accessToken,
+            },
+          });
 
-        if (
-          !(requestResponse.status == 200 || requestResponse.data.status == 200)
-        ) {
-          throw new Error("Request Error");
+          console.log(requestResponse);
+
+          if (requestResponse.status !== 200) {
+            throw new Error(`Error with status code ${requestResponse.status}`);
+          }
+
+          let studentsAttendance = requestResponse.data.data;
+          return studentsAttendance;
+        } catch (Exception) {
+          console.log(Exception.message);
+          return false;
         }
-
-        let studentsAttendance = requestResponse.data.data;
-        return studentsAttendance;
-      } catch (Exception) {
-        console.log(Exception.message);
-        return false;
       }
     },
 

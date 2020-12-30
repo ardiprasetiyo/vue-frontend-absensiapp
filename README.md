@@ -20,5 +20,12 @@ npm run build
 npm run lint
 ```
 
+### Build to Android Apps using Capacitor
+```
+npx cap copy
+npx cap update
+npx cap open android
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

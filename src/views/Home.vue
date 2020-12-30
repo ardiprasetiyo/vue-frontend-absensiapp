@@ -12,7 +12,8 @@
         </div>
         <div class="col-6 col-md-4">
           <h5 class="text-heading-1-index">
-            Halo<span class="text-heading-1-semibold-index">
+            Halo
+            <span class="text-heading-1-semibold-index">
               {{ userFullname || "Mohon menunggu ..." }}</span
             >
           </h5>
@@ -228,6 +229,8 @@
 </template>
 
 <script>
+/* eslint-disable */
+
 import Vue from "vue";
 import Axios from "@/plugins/Axios";
 import AuthToken from "@/plugins/AuthToken";
@@ -272,7 +275,6 @@ export default {
     let io = this.$socketClient(process.env.VUE_APP_SOCKET_HOST);
     let accessToken = this.$cookies.get("access-token");
     let decodedToken = this.$jwt.decode(accessToken);
-
     let userID = decodedToken.userID;
 
     io.emit("socketInit", { userUniqueID: userID });
@@ -345,7 +347,7 @@ export default {
 
   computed: {
     activeStudentAttendStats() {
-      if (this.attendanceStatus != undefined) {
+      if (this.attendanceStatus) {
         let activeStudentStat = this.attendanceStatus.filter(
           (studentAttend) => {
             return studentAttend.studentID == this.activeStudentAttend;
