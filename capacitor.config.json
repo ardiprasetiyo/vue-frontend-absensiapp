@@ -5,6 +5,10 @@
   "npmClient": "npm",
   "webDir": "dist",
   "linuxAndroidStudioPath": "/opt/android-studio-4.1/android-studio/bin/studio.sh",
+  "server": {
+    "url": "http://192.168.43.184:8080",
+    "cleartext": true
+  },
   "plugins": {
     "SplashScreen": {
       "launchShowDuration": 0

@@ -297,6 +297,10 @@ export default {
     });
   },
 
+  destroyed() {
+    PushNotifications.removeAllListeners();
+  },
+
   async mounted() {
     const tokenCheck = await this.tokenCheck();
     if (!tokenCheck) {
