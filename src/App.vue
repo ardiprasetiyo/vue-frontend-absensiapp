@@ -5,11 +5,14 @@
       :tokenCheck="tokenCheck"
       :getStudent="getStudentData"
       :getStudentAttend="getStudentAttend"
+      :syncFCMToken="syncFCMToken"
     />
   </div>
 </template>
 
 <script>
+/* eslint-disable */
+
 import Vue from "vue";
 import Jwt from "@/plugins/JsonWebToken";
 import AuthToken from "@/plugins/AuthToken";
@@ -24,6 +27,34 @@ export default {
   methods: {
     linkTo(url = "/home") {
       this.$router.push(url);
+    },
+
+    async syncFCMToken(FCMToken) {
+      const validToken = await this.tokenCheck();
+      if (validToken) {
+        const accessToken = this.$cookies.get("access-token");
+        const { userID } = await this.$jwt.decode(accessToken);
+        try {
+          const response = await this.$axios({
+            method: "PATCH",
+            url: process.env.VUE_APP_API_HOST + "/api/v1/fcm",
+            data: {
+              uid: userID,
+              "fcm-token": FCMToken,
+            },
+            headers: {
+              "Access-Token": accessToken,
+            },
+          });
+          if (response.data.statusCode !== 200) {
+            console.warn(
+              `Error Synchronizing FCM Token : ${response.data.message}`
+            );
+          }
+        } catch (exception) {
+          console.warn(`Error Synchronizing FCM Token : ${exception.message}`);
+        }
+      }
     },
 
     async getStudentAttend() {

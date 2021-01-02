@@ -48,141 +48,137 @@
         </div>
       </div>
 
-      <div
-        class="activePresenceGroup"
-        v-if="
-          activeStudentAttendStats &&
-          !activeStudentAttendStats[0].leaving_datetime &&
-          !activeStudentAttendStats[0].absence
-        "
-      >
-        <div class="row">
-          <div class="col-12">
-            <img
-              class="img img-fluid pl-4 mx-auto d-block"
-              src="@/assets/images/illustration/sudah_tiba 1.svg"
-              alt="Responsive image"
-            />
-            <h4 class="text-center text-heading-2-index">
-              <b>Anak Anda Sudah Sampai!</b>
-            </h4>
-            <p class="text-center text-heading-2-index">
-              <span
-                class="text-heading-2-semibold-indext"
-                v-if="activeStudentAttend"
-                >{{
-                  studentData.filter((student) => {
-                    return student._id == activeStudentAttend;
-                  })[0].fullname
-                }}</span
-              >
-              sudah sampai di sekolah.
-            </p>
+      <div class="presenceGroup" v-if="activeStudentAttendStats">
+        <div
+          class="activePresenceGroup"
+          v-if="
+            !activeStudentAttendStats.leaving_datetime &&
+            !activeStudentAttendStats.absence
+          "
+        >
+          <div class="row">
+            <div class="col-12">
+              <img
+                class="img img-fluid pl-4 mx-auto d-block"
+                src="@/assets/images/illustration/sudah_tiba 1.svg"
+                alt="Responsive image"
+              />
+              <h4 class="text-center text-heading-2-index">
+                <b>Anak Anda Sudah Sampai!</b>
+              </h4>
+              <p class="text-center text-heading-2-index">
+                <span
+                  class="text-heading-2-semibold-indext"
+                  v-if="activeStudentAttend"
+                  >{{
+                    studentData.filter((student) => {
+                      return student._id == activeStudentAttend;
+                    })[0].fullname
+                  }}</span
+                >
+                sudah sampai di sekolah.
+              </p>
+            </div>
+          </div>
+
+          <div class="row ml-4 pl-4">
+            <div class="col-2 offset-lg-1 col-md-4 pr-0 text-right">
+              <span class="material-icons"> query_builder </span>
+            </div>
+            <div class="col-7 col-lg-3">
+              <p class="text-heading-1-index">
+                Hari Ini Pada
+                {{
+                  this.$moment(
+                    activeStudentAttendStats.present_datetime
+                  ).format("HH:mm")
+                }}
+              </p>
+            </div>
           </div>
         </div>
 
-        <div class="row ml-4 pl-4">
-          <div class="col-2 offset-lg-1 col-md-4 pr-0 text-right">
-            <span class="material-icons"> query_builder </span>
+        <div
+          class="activePresenceGroup"
+          v-else-if="activeStudentAttendStats.leaving_datetime"
+        >
+          <div class="row">
+            <div class="col-12">
+              <img
+                class="img img-fluid pl-4 mx-auto d-block"
+                src="@/assets/images/illustration/sudah_tiba 1.svg"
+                alt="Responsive image"
+              />
+              <h4 class="text-center text-heading-2-index">
+                <b>Anak Anda Sudah Pulang!</b>
+              </h4>
+              <p class="text-center text-heading-2-index">
+                <span
+                  class="text-heading-2-semibold-indext"
+                  v-if="activeStudentAttend"
+                  >{{
+                    studentData.filter((student) => {
+                      return student._id == activeStudentAttend;
+                    })[0].fullname
+                  }}</span
+                >
+                sudah pulang dari sekolah. Jika belum sampai segera hubungi anak
+                anda.
+              </p>
+            </div>
           </div>
-          <div class="col-7 col-lg-3">
-            <p class="text-heading-1-index">
-              Hari Ini Pada
-              {{
-                this.$moment(
-                  activeStudentAttendStats[0].present_datetime
-                ).format("HH:mm")
-              }}
-            </p>
-          </div>
-        </div>
-      </div>
 
-      <div
-        class="activePresenceGroup"
-        v-else-if="
-          activeStudentAttendStats &&
-          activeStudentAttendStats[0].leaving_datetime
-        "
-      >
-        <div class="row">
-          <div class="col-12">
-            <img
-              class="img img-fluid pl-4 mx-auto d-block"
-              src="@/assets/images/illustration/sudah_tiba 1.svg"
-              alt="Responsive image"
-            />
-            <h4 class="text-center text-heading-2-index">
-              <b>Anak Anda Sudah Pulang!</b>
-            </h4>
-            <p class="text-center text-heading-2-index">
-              <span
-                class="text-heading-2-semibold-indext"
-                v-if="activeStudentAttend"
-                >{{
-                  studentData.filter((student) => {
-                    return student._id == activeStudentAttend;
-                  })[0].fullname
-                }}</span
-              >
-              sudah pulang dari sekolah. Jika belum sampai segera hubungi anak
-              anda.
-            </p>
+          <div class="row ml-4 pl-4">
+            <div class="col-2 offset-lg-1 col-md-4 pr-0 text-right">
+              <span class="material-icons"> query_builder </span>
+            </div>
+            <div class="col-7 col-lg-3">
+              <p class="text-heading-1-index">
+                Hari Ini Pada
+                {{
+                  this.$moment(
+                    activeStudentAttendStats.leaving_datetime
+                  ).format("HH:mm")
+                }}
+              </p>
+            </div>
           </div>
         </div>
 
-        <div class="row ml-4 pl-4">
-          <div class="col-2 offset-lg-1 col-md-4 pr-0 text-right">
-            <span class="material-icons"> query_builder </span>
+        <div
+          class="activePresenceGroup"
+          v-else-if="activeStudentAttendStats.absence"
+        >
+          <div class="row">
+            <div class="col-12">
+              <img
+                class="img img-fluid pl-4 mx-auto d-block"
+                src="@/assets/images/illustration/sudah_tiba 1.svg"
+                alt="Responsive image"
+              />
+              <h4 class="text-center text-heading-2-index">
+                <b>Izin telah terkirim!</b>
+              </h4>
+              <p class="text-center text-heading-2-index">
+                Izin telah dikirimkan
+              </p>
+            </div>
           </div>
-          <div class="col-7 col-lg-3">
-            <p class="text-heading-1-index">
-              Hari Ini Pada
-              {{
-                this.$moment(
-                  activeStudentAttendStats[0].leaving_datetime
-                ).format("HH:mm")
-              }}
-            </p>
-          </div>
-        </div>
-      </div>
 
-      <div
-        class="activePresenceGroup"
-        v-else-if="
-          activeStudentAttendStats && activeStudentAttendStats[0].absence
-        "
-      >
-        <div class="row">
-          <div class="col-12">
-            <img
-              class="img img-fluid pl-4 mx-auto d-block"
-              src="@/assets/images/illustration/sudah_tiba 1.svg"
-              alt="Responsive image"
-            />
-            <h4 class="text-center text-heading-2-index">
-              <b>Izin telah terkirim!</b>
-            </h4>
-            <p class="text-center text-heading-2-index">
-              Izin telah dikirimkan
-            </p>
-          </div>
-        </div>
-
-        <div class="row ml-4 pl-4">
-          <div class="col-2 offset-lg-1 col-md-4 pr-0 text-right">
-            <span class="material-icons"> query_builder </span>
-          </div>
-          <div class="col-7 col-lg-3">
-            <p class="text-heading-1-index">
-              Hari Ini Pada
-              {{
-                this.$moment(
-                  activeStudentAttendStats[0].absence_datetime
-                ).format("HH:mm")
-              }}
-            </p>
+          <div class="row ml-4 pl-4">
+            <div class="col-2 offset-lg-1 col-md-4 pr-0 text-right">
+              <span class="material-icons"> query_builder </span>
+            </div>
+            <div class="col-7 col-lg-3">
+              <p class="text-heading-1-index">
+                Hari Ini Pada
+                {{
+                  this.$moment(
+                    activeStudentAttendStats.absence_datetime
+                  ).format("HH:mm")
+                }}
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -238,6 +234,8 @@ import Jwt from "@/plugins/JsonWebToken";
 import SweetAlert from "@/plugins/SweetAlert";
 import SocketClient from "@/plugins/Socket";
 import Moment from "@/plugins/Moment";
+import { Plugins } from "@capacitor/core";
+const { PushNotifications } = Plugins;
 
 Vue.use(Axios);
 Vue.use(AuthToken);
@@ -269,6 +267,9 @@ export default {
     getStudentAttend: {
       type: Function,
     },
+    syncFCMToken: {
+      type: Function,
+    },
   },
 
   async created() {
@@ -281,6 +282,18 @@ export default {
     io.on("attendanceUpdate", async () => {
       const studentAttend = await this.getStudentAttend();
       this.attendanceStatus = studentAttend;
+    });
+
+    PushNotifications.requestPermission().then((result) => {
+      if (result.granted) {
+        PushNotifications.register();
+      } else {
+        console.log("Subscribe disallowed by user");
+      }
+    });
+
+    PushNotifications.addListener("registration", async (token) => {
+      await this.syncFCMToken(token.value);
     });
   },
 

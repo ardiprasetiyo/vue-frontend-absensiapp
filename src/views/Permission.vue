@@ -230,7 +230,7 @@ export default {
         return;
       }
 
-      alert(responseData.message);
+      alert(responseData.reason);
       this.isSubmitted = false;
     },
 

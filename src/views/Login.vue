@@ -191,14 +191,9 @@ export default {
             this.$cookies.set("refresh-token", tokens.refresh_token);
             this.linkTo("/home");
           } else {
-            if (response_data.errcode == "ERR_USER_NOTFOUND") {
-              this.loginError = "Username tidak terdaftar";
-            } else if (response_data.errcode == "INVALID_PASSWORD") {
-              this.loginError = "password sudah di gunakan";
-            } else if (response_data.errcode == "INTERNAL_SERVER_ERROR") {
-              this.loginError = "Terjadi kesalahan server";
-            } else {
-              this.loginError = "Terjadi kesalahan yang tidak diketahui";
+            if (response_data.statusCode !== 200) {
+              console.log(response_data);
+              this.loginError = response_data.reason;
             }
           }
           this.isSubmitted = false;

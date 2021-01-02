@@ -1,6 +1,6 @@
 {
   "appId": "com.developer.smkn3bandung.app",
-  "appName": "absensi-app",
+  "appName": "Absensi Digital SMKN 3 Bandung",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "dist",
