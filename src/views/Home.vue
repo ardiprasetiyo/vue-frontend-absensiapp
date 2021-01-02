@@ -3,12 +3,7 @@
     <div class="container pl-4 pr-4 pb-4">
       <div class="row mt-4 pt-4 ml-2">
         <div class="col-3 col-md-2 offset-md-2 my-auto">
-          <span
-            class="material-icons avatar-default"
-            @click="linkTo('/setting')"
-          >
-            account_circle
-          </span>
+          <span class="material-icons avatar-default"> account_circle </span>
         </div>
         <div class="col-6 col-md-4">
           <h5 class="text-heading-1-index">
